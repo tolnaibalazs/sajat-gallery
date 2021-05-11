@@ -1,0 +1,208 @@
+body {
+    background-color: #0c9fcf;
+    background-image: linear-gradient(315deg, #043849 0%, #58738a 74%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh; /* min-height: 100vh; */
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    width: 1000px;
+    /*margin: 150px auto;*/
+}
+
+.galery-big-container {
+    display: flex;
+    height: 450px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.arrow {
+    width: 5%;
+    height: 100%;
+    cursor: pointer;
+    /*margin: auto 0;*/
+
+    text-align: center;
+    background-color: #ebebeb;
+    opacity: 0.7;
+
+    position: relative;
+}
+
+.arrow:hover {
+    opacity: 1;
+}
+
+.arrow img {
+    margin: auto 0;
+    position: absolute;
+    top: calc(50% - 11px);
+    right: calc(50% - 10px);
+}
+
+#arrow-right img {
+    transform: rotate(180deg);
+}
+
+.bigimage {
+    width: 90%;
+    height: inherit;
+
+    /* ezzel horizontálisan középre helyezi a képet */
+    /*display: flex;
+    align-items: center;
+    justify-content: center;*/
+
+    /*text-align: center;*/
+    overflow: hidden;
+
+    position: relative;
+}
+.bigimage img {
+    width: 100%;
+    /*height: inherit;*/
+
+    /* .bigimage: ezzel horizontálisan középre helyezi a képet + ezzel arányosítja a képet */
+    /*width: inherit;
+    height: inherit;
+    object-fit: contain;*/
+}
+
+.bigimage .imagedescription {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    color: #f1f1f1; /* Grey text */
+    padding: 15px;
+}
+
+.bigimage .imagedescription h1 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.bigimage .imagedescription p {
+    margin: 0;
+    color: darkgrey;
+}
+
+.galery-thumbnail-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.galery-thumbnail-container .outer {
+    /*border: 1px solid grey;*/
+    padding: 2px;
+    margin-right: 5px;
+    background-color: honeydew;
+    border-radius: 3px;
+
+    box-shadow: 0 3px 3px 0 black;
+    /*box-shadow: 0 0 2px 2px grey;*/
+    /*black 0px 4px 8px;*/
+    /*rgb(30 30 30) 0 5px 8px 0px;*/
+
+    position: relative;
+}
+
+.galery-thumbnail-container .outer:hover {
+    box-shadow: 0 6px 8px 0 black;
+}
+
+.galery-thumbnail-container .thumb {
+    width: 60px;
+    height: 60px;
+    background-size: cover;
+    background-position: center;
+
+    cursor: pointer;
+
+    /*margin: 5px;*/
+    box-sizing: border-box;
+
+    border-radius: 3px;
+    /*box-shadow: 0 0 2px 2px grey;*/
+    /*0 3px 5px 0px grey*/
+    /*border: 3px solid white;*/ /* belassítja */
+}
+
+.galery-thumbnail-container .thumb:hover {
+    border: 2px solid lightblue;
+}
+
+.galery-thumbnail-container .outer.active {
+    background-color: lightblue;
+    box-shadow: 0 6px 8px 0 black;
+}
+
+.galery-thumbnail-container .outer.active::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent lightblue transparent; /*honeydew*/
+}
+
+.thumbtitle {
+    display: none;
+    width: 150px; /*max-content*/
+    /*width: fit-content;
+    block-size: fit-content;
+    overflow-y: auto;*/
+    
+    background: black;
+    color: white;
+    border-radius: 6px;
+    padding: 5px 0;
+    text-align: center;
+
+    /*position: relative;*/
+    /*top:50%;
+    transform:translateY(-50%);
+    transform: translate(-50%,0);*/
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    bottom: 112%;
+    left: calc( (150px - 60px) / -2);
+}
+
+.thumbtitle::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.thumb:hover .thumbtitle {
+    display: block;
+}
+
+.unselectable {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+ }
